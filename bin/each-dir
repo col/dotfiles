@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# load rvm if it exists
+[ -s "$HOME/.rvm/scripts/rvm" ] && . "$HOME/.rvm/scripts/rvm"
+
+COMMAND="$@"
+
+if [ -z "${COMMAND}" ]; then
+    echo "Usage: ${0} <command>";
+    exit 1;
+fi
+
+CURRENT_PATH=`pwd`
+
+for directory in `find ${CURRENT_PATH} -type d -depth 1`; do
+    printf "\n\n==== Directory: ${directory} ====\n\n";
+
+    cd ${directory};
+    ${COMMAND};
+    cd ${CURRENT_PATH};
+done
+

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "USAGE: ${0} <rpm name>"
+    exit 1
+fi
+
+rpm_name=${1}
+
+rea-ec2-ssh agent-01.biq "yum list --showduplicates --enablerepo=rea-el6-dev ${rpm_name}"
