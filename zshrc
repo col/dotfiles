@@ -60,6 +60,8 @@ alias ft='echo "(╯°□°)╯︵ ┻━┻"';
 alias tf='echo "(╯°□°)╯︵ ┻━┻"';
 alias rtf='echo "┬─┬ ノ( ^_^ノ)"';
 
+alias timestamp='ruby -e "require \"date\"; puts DateTime.now.xmlschema"'
+
 # CDPATH
 export CDPATH='.:/Users/charris/rea:/Users/charris/Projects:/Users/charris/GitHub'
 
