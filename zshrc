@@ -55,6 +55,7 @@ export PATH=$PATH:/Users/charris/.rvm/gems/ruby-1.9.3-p194/bin:/Users/charris/.r
 alias gpr='git pull --rebase';
 alias gs='git status';
 alias ll='ls -la';
+alias timestamp='ruby -e "require \"date\"; puts DateTime.now.xmlschema"'
 
 alias ft='echo "(╯°□°)╯︵ ┻━┻"';
 alias tf='echo "(╯°□°)╯︵ ┻━┻"';
