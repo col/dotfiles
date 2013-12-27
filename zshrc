@@ -50,7 +50,7 @@ source $ZSH/oh-my-zsh.sh
 
 #zstyle ':completion:*:functions' ignored-patterns '_*'
 
-export PATH=$PATH:/Users/charris/.rvm/gems/ruby-1.9.3-p194/bin:/Users/charris/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/charris/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/charris/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/local/mysql/bin:~/bin
+export PATH=$PATH:/Users/charris/.rvm/gems/ruby-1.9.3-p194/bin:/Users/charris/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/charris/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/charris/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/local/mysql/bin:~/bin:/usr/local/go/bin
 
 alias gpr='git pull --rebase';
 alias gs='git status';
