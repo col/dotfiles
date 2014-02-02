@@ -55,7 +55,13 @@ export PATH=$PATH:/Users/charris/.rvm/gems/ruby-1.9.3-p194/bin:/Users/charris/.r
 alias gpr='git pull --rebase';
 alias gs='git status';
 alias ll='ls -la';
-alias timestamp='ruby -e "require \"date\"; puts DateTime.now.xmlschema"'
+
+alias      timestamp="ruby -e \"require 'date'; puts Time.now.utc.to_datetime.xmlschema"\"
+alias urlencodeparam="ruby -e \"require 'erb';  ARGF.each_line { | line | puts ERB::Util.url_encode(line.strip) }\""
+alias      urldecode="ruby -e \"require 'uri';  ARGF.each_line { | line | puts URI.decode(line.strip) }\""
+alias      localtime="ruby -e \"require 'date'; ARGF.each_line { | line | puts DateTime.parse(line.strip).to_time.localtime.to_datetime.xmlschema}\""
+alias            utc="ruby -e \"require 'date'; ARGF.each_line { | line | puts DateTime.parse(line.strip).to_time.utc.to_datetime.xmlschema}\""
+
 
 alias ft='echo "(╯°□°)╯︵ ┻━┻"';
 alias tf='echo "(╯°□°)╯︵ ┻━┻"';
