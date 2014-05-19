@@ -1,0 +1,14 @@
+#!/bin/bash
+
+dirs=`find . -name "Gemfile" -exec dirname {} \;`
+command="bundle ${@:-install}"
+current_path=${PWD}
+
+for dir in ${dirs}; do
+    echo -en "\n\n$EINS\033[0;32m----->\033[0;0m Running ${command} on \033[0;33m${dir}\033[0;0m ...\n"
+
+    cd ${dir}
+    ${command}
+    cd ${current_path}
+done
+
