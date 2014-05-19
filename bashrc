@@ -22,3 +22,5 @@ export GPG_TTY='tty'
 alias b='bundle';
 alias be='bundle exec';
 alias gpr='git pull --rebase';
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/charris/.gvm/bin/gvm-init.sh" ]] && source "/Users/charris/.gvm/bin/gvm-init.sh"
