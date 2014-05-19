@@ -46,8 +46,12 @@ plugins=(gitfast bundler history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+# Hack fixes to an annoying issue that make me quote command parameters.
+alias rake="noglob rake"
+alias bundle="noglob bundle"
+alias rea-ec2-start-instance="noglob rea-ec2-start-instance"
 
+# Customize to your needs...
 #zstyle ':completion:*:functions' ignored-patterns '_*'
 
 export PATH=$PATH:/Users/charris/.rvm/gems/ruby-1.9.3-p194/bin:/Users/charris/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/charris/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/charris/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/local/mysql/bin:~/bin:/usr/local/go/bin
@@ -62,7 +66,11 @@ alias      urldecode="ruby -e \"require 'uri';  ARGF.each_line { | line | puts U
 alias      localtime="ruby -e \"require 'date'; ARGF.each_line { | line | puts DateTime.parse(line.strip).to_time.localtime.to_datetime.xmlschema}\""
 alias            utc="ruby -e \"require 'date'; ARGF.each_line { | line | puts DateTime.parse(line.strip).to_time.utc.to_datetime.xmlschema}\""
 
+alias coinflip="[[ 0 -eq $(($RANDOM % 2)) ]] && echo 'tailz' || echo 'headz'"
+alias coin_flip="[[ 0 -eq $(($RANDOM % 2)) ]] && echo 'tailz' || echo 'headz'"
 
+alias flip_table='echo "(╯°□°)╯︵ ┻━┻"';
+alias table_flip='echo "(╯°□°)╯︵ ┻━┻"';
 alias ft='echo "(╯°□°)╯︵ ┻━┻"';
 alias tf='echo "(╯°□°)╯︵ ┻━┻"';
 alias rtf='echo "┬─┬ ノ( ^_^ノ)"';
@@ -73,3 +81,6 @@ alias timestamp='ruby -e "require \"date\"; puts DateTime.now.xmlschema"'
 export CDPATH='.:/Users/charris/rea:/Users/charris/Projects:/Users/charris/GitHub'
 
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/charris/.gvm/bin/gvm-init.sh" ]] && source "/Users/charris/.gvm/bin/gvm-init.sh"
