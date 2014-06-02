@@ -51,6 +51,8 @@ alias rake="noglob rake"
 alias bundle="noglob bundle"
 alias rea-ec2-start-instance="noglob rea-ec2-start-instance"
 
+setopt no_share_history
+
 # Customize to your needs...
 #zstyle ':completion:*:functions' ignored-patterns '_*'
 
@@ -77,10 +79,13 @@ alias rtf='echo "┬─┬ ノ( ^_^ノ)"';
 
 alias timestamp='ruby -e "require \"date\"; puts DateTime.now.xmlschema"'
 
+alias edir='each-dir'
+
 # CDPATH
 export CDPATH='.:/Users/charris/rea:/Users/charris/Projects:/Users/charris/GitHub'
 
-
+# Usage: sshdel <line_number>
+function sshdel { perl -i -n -e "print unless (\$. == $1)" ~/.ssh/known_hosts; }
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/charris/.gvm/bin/gvm-init.sh" ]] && source "/Users/charris/.gvm/bin/gvm-init.sh"

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# load rvm if it exists
-[ -s "$HOME/.rvm/scripts/rvm" ] && . "$HOME/.rvm/scripts/rvm"
-
 COMMAND="$@"
 
 if [ -z "${COMMAND}" ]; then
@@ -13,10 +10,9 @@ fi
 CURRENT_PATH=`pwd`
 
 for directory in `find ${CURRENT_PATH} -type d -depth 1`; do
-    printf "\n\n==== Directory: ${directory} ====\n\n";
+    echo -en "\n\n$EINS\033[0;32m----->\033[0;0m Directory: \033[0;33m${directory}\033[0;0m ...\n"
 
     cd ${directory};
     ${COMMAND};
     cd ${CURRENT_PATH};
 done
-
