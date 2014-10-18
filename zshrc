@@ -56,7 +56,7 @@ setopt no_share_history
 # Customize to your needs...
 #zstyle ':completion:*:functions' ignored-patterns '_*'
 
-export PATH=$PATH:/Users/charris/.rvm/gems/ruby-1.9.3-p194/bin:/Users/charris/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/charris/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/charris/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/local/mysql/bin:~/bin:/usr/local/go/bin
+export PATH=$PATH:/Users/Col/.rvm/gems/ruby-1.9.3-p194/bin:/Users/Col/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/Col/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/Col/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/local/mysql/bin:~/bin:/usr/local/go/bin
 
 alias gpr='git pull --rebase';
 alias gs='git status';
@@ -82,10 +82,10 @@ alias timestamp='ruby -e "require \"date\"; puts DateTime.now.xmlschema"'
 alias edir='each-dir'
 
 # CDPATH
-export CDPATH='.:/Users/charris/rea:/Users/charris/Projects:/Users/charris/GitHub'
+export CDPATH='.:/Users/Col/rea:/Users/Col/Projects:/Users/Col/GitHub'
 
 # Usage: sshdel <line_number>
 function sshdel { perl -i -n -e "print unless (\$. == $1)" ~/.ssh/known_hosts; }
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/charris/.gvm/bin/gvm-init.sh" ]] && source "/Users/charris/.gvm/bin/gvm-init.sh"
+[[ -s "/Users/Col/.gvm/bin/gvm-init.sh" ]] && source "/Users/Col/.gvm/bin/gvm-init.sh"
