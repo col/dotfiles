@@ -13,7 +13,7 @@ Sym Link the relevant files
 
 ```
 ln -s ~/dotfiles/zshrc .zshrc
-ln -s ~/dotfiles/oh-my-zsh/themes/col.zsh-theme /Users/Col/.oh-my-zsh/themes/col.zsh-theme
+ln -s ~/dotfiles/oh-my-zsh/themes/col.zsh-theme ~/.oh-my-zsh/themes/col.zsh-theme
 ln -s ~/dotfiles/bin bin
 ```
 
