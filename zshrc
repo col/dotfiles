@@ -3,15 +3,11 @@ ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="fino"
 ZSH_THEME="col"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="atom ~/.zshrc"
+alias ohmyzsh="atom ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -49,14 +45,13 @@ source $ZSH/oh-my-zsh.sh
 # Hack fixes to an annoying issue that make me quote command parameters.
 alias rake="noglob rake"
 alias bundle="noglob bundle"
-alias rea-ec2-start-instance="noglob rea-ec2-start-instance"
 
 setopt no_share_history
 
 # Customize to your needs...
 #zstyle ':completion:*:functions' ignored-patterns '_*'
 
-export PATH=$PATH:/Users/Col/.rvm/gems/ruby-1.9.3-p194/bin:/Users/Col/.rvm/gems/ruby-1.9.3-p194@global/bin:/Users/Col/.rvm/rubies/ruby-1.9.3-p194/bin:/Users/Col/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/local/mysql/bin:~/bin:/usr/local/go/bin
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/local/mysql/bin:~/bin:/usr/local/go/bin
 
 alias gpr='git pull --rebase';
 alias gs='git status';
@@ -89,3 +84,26 @@ function sshdel { perl -i -n -e "print unless (\$. == $1)" ~/.ssh/known_hosts; }
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/Col/.gvm/bin/gvm-init.sh" ]] && source "/Users/Col/.gvm/bin/gvm-init.sh"
+
+# thefuck
+alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1 | tail -n 1)) && eval $TF_CMD && print -s $TF_CMD'
+
+# rbenv
+export PATH="/Users/col/.rbenv/shims:${PATH}"
+export RBENV_SHELL=zsh
+source '/usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.zsh'
+command rbenv rehash 2>/dev/null
+rbenv() {
+  local command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  rehash|shell)
+    eval "$(rbenv "sh-$command" "$@")";;
+  *)
+    command rbenv "$command" "$@";;
+  esac
+}
