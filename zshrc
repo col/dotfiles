@@ -82,6 +82,12 @@ export CDPATH='.:/Users/Col/rea:/Users/Col/Projects:/Users/Col/GitHub'
 # Usage: sshdel <line_number>
 function sshdel { perl -i -n -e "print unless (\$. == $1)" ~/.ssh/known_hosts; }
 
+# Go Lang
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=~/GoProjects
+export GOPOINTS_PATH=~/GoPoints
+export GOBUY_PATH=~/GoBuy
+
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/Col/.gvm/bin/gvm-init.sh" ]] && source "/Users/Col/.gvm/bin/gvm-init.sh"
 
@@ -107,3 +113,8 @@ rbenv() {
     command rbenv "$command" "$@";;
   esac
 }
+
+# bash-completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
