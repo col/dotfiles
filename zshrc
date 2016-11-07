@@ -51,7 +51,11 @@ setopt no_share_history
 # Customize to your needs...
 #zstyle ':completion:*:functions' ignored-patterns '_*'
 
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/local/mysql/bin:~/bin:/usr/local/go/bin
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 alias gpr='git pull --rebase';
 alias gs='git status';
