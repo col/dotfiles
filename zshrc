@@ -80,8 +80,13 @@ alias timestamp='ruby -e "require \"date\"; puts DateTime.now.xmlschema"'
 
 alias edir='each-dir'
 
+# Gradle Alias'
+alias updateDB='./gradlew updateDB && APP_ENVIRONMENT=test ./gradlew updateDB'
+alias dropDB='./gradlew dropDB && APP_ENVIRONMENT=test ./gradlew dropDB'
+alias start='./gradlew startServer'
+
 # CDPATH
-export CDPATH='.:/Users/Col/rea:/Users/Col/Projects:/Users/Col/GitHub'
+# export CDPATH='.:/Users/Col/Projects:/Users/Col/github'
 
 # Usage: sshdel <line_number>
 function sshdel { perl -i -n -e "print unless (\$. == $1)" ~/.ssh/known_hosts; }
@@ -89,14 +94,30 @@ function sshdel { perl -i -n -e "print unless (\$. == $1)" ~/.ssh/known_hosts; }
 # Go Lang
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOPATH=~/GoProjects
+
+# AWS CLI
+source /usr/local/share/zsh/site-functions/_aws
+
+# Gradle
+export GRADLE_HOME=/usr/local/opt/gradle/libexec
+
+# Scala
+export SCALA_HOME=/usr/local/Cellar/scala/2.11.8
+
+# Go Lang
+export GOPATH=~/GoProjects
+export GOROOT=/usr/local/Cellar/go/1.6.2/libexec
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# GoJek
+export GOJEK_HOME=~/GoJek
+export PATH=$PATH:$GOJEK_HOME/scripts/start_gopay_services
 export GOPOINTS_PATH=~/GoPoints
 export GOBUY_PATH=~/GoBuy
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/Col/.gvm/bin/gvm-init.sh" ]] && source "/Users/Col/.gvm/bin/gvm-init.sh"
-
 # thefuck
-alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1 | tail -n 1)) && eval $TF_CMD && print -s $TF_CMD'
+#alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1 | tail -n 1)) && eval $TF_CMD && print -s $TF_CMD'
+eval "$(thefuck --alias)"
 
 # rbenv
 export PATH="/Users/col/.rbenv/shims:${PATH}"
@@ -117,3 +138,6 @@ rbenv() {
     command rbenv "$command" "$@";;
   esac
 }
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/Col/.gvm/bin/gvm-init.sh" ]] && source "/Users/Col/.gvm/bin/gvm-init.sh"
