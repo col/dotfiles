@@ -106,7 +106,8 @@ export SCALA_HOME=/usr/local/Cellar/scala/2.11.8
 
 # Go Lang
 export GOPATH=~/GoProjects
-export GOROOT=/usr/local/Cellar/go/1.6.2/libexec
+export GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
+export GOROOT=$(brew --prefix)/Cellar/go/${GOVERSION}/libexec
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # GoJek
