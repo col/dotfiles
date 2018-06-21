@@ -80,23 +80,14 @@ alias timestamp='ruby -e "require \"date\"; puts DateTime.now.xmlschema"'
 
 alias edir='each-dir'
 
-# Gradle Alias'
-alias updateDB='./gradlew updateDB && APP_ENVIRONMENT=test ./gradlew updateDB'
-alias dropDB='./gradlew dropDB && APP_ENVIRONMENT=test ./gradlew dropDB'
-alias start='./gradlew startServer'
-
 # CDPATH
 # export CDPATH='.:/Users/Col/Projects:/Users/Col/github'
 
 # Usage: sshdel <line_number>
 function sshdel { perl -i -n -e "print unless (\$. == $1)" ~/.ssh/known_hosts; }
 
-# Go Lang
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export GOPATH=~/GoProjects
-
 # AWS CLI
-source /usr/local/share/zsh/site-functions/_aws
+# source /usr/local/share/zsh/site-functions/_aws
 
 # Gradle
 export GRADLE_HOME=/usr/local/opt/gradle/libexec
@@ -105,25 +96,23 @@ export GRADLE_HOME=/usr/local/opt/gradle/libexec
 export SCALA_HOME=/usr/local/Cellar/scala/2.11.8
 
 # Go Lang
-export GOPATH=~/GoProjects
+export GOPATH=~/go
 export GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
 export GOROOT=$(brew --prefix)/Cellar/go/${GOVERSION}/libexec
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # GoJek
-export GOJEK_HOME=~/GoJek
-export PATH=$PATH:$GOJEK_HOME/scripts/start_gopay_services
-export GOPOINTS_PATH=~/GoPoints
-export GOBUY_PATH=~/GoBuy
-
-# thefuck
-#alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1 | tail -n 1)) && eval $TF_CMD && print -s $TF_CMD'
-eval "$(thefuck --alias)"
+export GOJEK_HOME=~/gojek
+# Gradle Alias
+alias updateDB='./gradlew updateDB && APP_ENVIRONMENT=test ./gradlew updateDB'
+alias dropDB='./gradlew dropDB && APP_ENVIRONMENT=test ./gradlew dropDB'
+alias start='./gradlew startServer'
 
 # rbenv
+export RBENVVERSION=$(brew list rbenv | head -n 1 | cut -d '/' -f 6)
 export PATH="/Users/col/.rbenv/shims:${PATH}"
 export RBENV_SHELL=zsh
-source '/usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.zsh'
+source /usr/local/Cellar/rbenv/${RBENVVERSION}/libexec/../completions/rbenv.zsh
 command rbenv rehash 2>/dev/null
 rbenv() {
   local command
