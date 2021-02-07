@@ -1,2 +1,0 @@
-touch $1
-open /Applications/mou.app $1
