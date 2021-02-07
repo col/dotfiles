@@ -1,133 +1,112 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-ZSH_THEME="col"
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/col/.oh-my-zsh"
 
-# Example aliases
-alias zshconfig="atom ~/.zshrc"
-alias ohmyzsh="atom ~/.oh-my-zsh"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-# Set to this to use case-sensitive completion
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment this to disable bi-weekly auto-update checks
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
-# Uncomment to change how often before auto-updates occur? (in days)
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
-# Uncomment following line if you want to disable colors in ls
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
-# Uncomment following line if you want to disable autosetting terminal title.
+# Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+# Uncomment the following line to display red dots whilst waiting for completion.
+# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
+# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
 # COMPLETION_WAITING_DOTS="true"
 
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(gitfast bundler history-substring-search)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Hack fixes to an annoying issue that make me quote command parameters.
-alias rake="noglob rake"
-alias bundle="noglob bundle"
+# User configuration
 
-setopt no_share_history
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# Customize to your needs...
-#zstyle ':completion:*:functions' ignored-patterns '_*'
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/bin
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-alias gpr='git pull --rebase';
-alias gs='git status';
-alias ll='ls -la';
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias      timestamp="ruby -e \"require 'date'; puts Time.now.utc.to_datetime.xmlschema"\"
-alias urlencodeparam="ruby -e \"require 'erb';  ARGF.each_line { | line | puts ERB::Util.url_encode(line.strip) }\""
-alias      urldecode="ruby -e \"require 'uri';  ARGF.each_line { | line | puts URI.decode(line.strip) }\""
-alias      localtime="ruby -e \"require 'date'; ARGF.each_line { | line | puts DateTime.parse(line.strip).to_time.localtime.to_datetime.xmlschema}\""
-alias            utc="ruby -e \"require 'date'; ARGF.each_line { | line | puts DateTime.parse(line.strip).to_time.utc.to_datetime.xmlschema}\""
+. $(brew --prefix asdf)/asdf.sh
+. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+. ~/.asdf/plugins/java/set-java-home.zsh
 
-alias coinflip="[[ 0 -eq $(($RANDOM % 2)) ]] && echo 'tailz' || echo 'headz'"
-alias coin_flip="[[ 0 -eq $(($RANDOM % 2)) ]] && echo 'tailz' || echo 'headz'"
-
-alias flip_table='echo "(╯°□°)╯︵ ┻━┻"';
-alias table_flip='echo "(╯°□°)╯︵ ┻━┻"';
-alias ft='echo "(╯°□°)╯︵ ┻━┻"';
-alias tf='echo "(╯°□°)╯︵ ┻━┻"';
-alias rtf='echo "┬─┬ ノ( ^_^ノ)"';
-
-alias timestamp='ruby -e "require \"date\"; puts DateTime.now.xmlschema"'
-
-alias edir='each-dir'
-
-# CDPATH
-# export CDPATH='.:/Users/Col/Projects:/Users/Col/github'
-
-# Usage: sshdel <line_number>
-function sshdel { perl -i -n -e "print unless (\$. == $1)" ~/.ssh/known_hosts; }
-
-# AWS CLI
-# source /usr/local/share/zsh/site-functions/_aws
-
-# Gradle
-export GRADLE_HOME=/usr/local/opt/gradle/libexec
-
-# Scala
-export SCALA_HOME=/usr/local/Cellar/scala/2.11.8
-
-# Go Lang
+#Configure GoLang
+export GOROOT=~/.asdf/installs/golang/1.15.6/go
 export GOPATH=~/go
-export GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
-export GOROOT=$(brew --prefix)/Cellar/go/${GOVERSION}/libexec
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-# GoJek
-export GOJEK_HOME=~/gojek
-# Gradle Alias
-alias updateDB='./gradlew updateDB && APP_ENVIRONMENT=test ./gradlew updateDB'
-alias dropDB='./gradlew dropDB && APP_ENVIRONMENT=test ./gradlew dropDB'
-alias start='./gradlew startServer'
-
-# rbenv
-export RBENVVERSION=$(brew list rbenv | head -n 1 | cut -d '/' -f 6)
-export PATH="/Users/col/.rbenv/shims:${PATH}"
-export RBENV_SHELL=zsh
-source /usr/local/Cellar/rbenv/${RBENVVERSION}/libexec/../completions/rbenv.zsh
-command rbenv rehash 2>/dev/null
-rbenv() {
-  local command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  rehash|shell)
-    eval "$(rbenv "sh-$command" "$@")";;
-  *)
-    command rbenv "$command" "$@";;
-  esac
-}
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/Col/.gvm/bin/gvm-init.sh" ]] && source "/Users/Col/.gvm/bin/gvm-init.sh"
+#Docker Compose Aliases
+source ~/.dotfiles/docker-aliases.sh
