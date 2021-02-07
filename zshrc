@@ -109,4 +109,4 @@ export GOROOT=~/.asdf/installs/golang/1.15.6/go
 export GOPATH=~/go
 
 #Docker Compose Aliases
-source ~/.dotfiles/docker-aliases.sh
+source ~/dotfiles/docker-aliases.sh
