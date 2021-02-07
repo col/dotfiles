@@ -1,4 +1,4 @@
-dotfiles
+dotfiles - ARCHIVED - Hasn't been touched since 2018!
 ========
 
 Not much here yet but this should be useful when I need to restore my config on a new laptop.
@@ -18,4 +18,3 @@ ln -s ~/dotfiles/bin bin
 ```
 
 Set the font to Menlo Regular 12pt (both regular and no-ascii font)
-
